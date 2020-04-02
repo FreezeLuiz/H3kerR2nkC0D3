@@ -1,0 +1,32 @@
+#!/bin/python3
+
+
+import os
+
+
+def equalizeArray(arr,n):
+    num = 0
+    count = 0
+    maxim = 0
+    for i in arr:
+        if arr.count(i) > maxim:
+            maxim = arr.count(i)
+            num = i
+    for i in arr:
+        if i != num:
+            count+=1
+    return count
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = equalizeArray(arr,n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
